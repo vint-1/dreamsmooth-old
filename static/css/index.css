@@ -17,6 +17,9 @@ body {
   font-variant: small-caps;
 }
 
+.plot-title{
+  text-align: center;
+}
 
 .teaser .hero-body {
   padding-top: 0;
@@ -28,6 +31,12 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 70%;
+}
+
+.image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .teaser {
