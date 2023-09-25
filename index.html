@@ -152,7 +152,7 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+          <iframe src="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
@@ -267,18 +267,41 @@
           <p>
             In this work, we investigate three popular smoothing functions: 
             Gaussian, uniform, and exponential moving average (EMA) smoothing.
+            The plots below illustrate the effect of these functions on reward signals for various values of smoothing parameters.
           </p>
         </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
+        <div class="columns is-centered">
+
+          <!-- Gaussian -->
+          <div class="column">
+            <div class="content">
+              <h2 class="title is-5 plot-title">Gaussian Smoothing</h2>
+              <img src="./static/images/gaussian.svg"
+                 class="image"
+                 alt="Rewards before and after Gaussian smoothing."/>
+            </div>
+          </div>
+
+          <!-- Uniform -->
+          <div class="column">
+            <div class="content">
+              <h2 class="title is-5 plot-title">Uniform Smoothing</h2>
+              <img src="./static/images/uniform.svg"
+                 class="image"
+                 alt="Shadow hand environment ground truth and predicted rewards over 1 episode."/>
+            </div>
+          </div>
+
+          <!-- EMA -->
+          <div class="column">
+            <div class="content">
+              <h2 class="title is-5 plot-title">EMA Smoothing</h2>
+              <img src="./static/images/ema.svg"
+                 class="image"
+                 alt="Earthmoving environment ground truth and predicted rewards over 1 episode."/>
+            </div>
+          </div>
+
         </div>
         <!--/ Our Solution. -->
 
@@ -399,21 +422,23 @@
           </p>
         </div>
         <div class="columns is-centered">
-          <!-- Robodesk -->
+          <!-- Image -->
           <div class="column">
             <div class="content">
               <h2 class="title is-5 plot-title">ShadowHand (Image Observations)</h2>
               <img src="./static/images/learning_curves/tdmpc-Pixels.svg"
                  class="image"
+                 width="80%"
                  alt="Learning curves in robodesk environment."/>
             </div>
           </div>
-          <!-- Hand -->
+          <!-- State -->
           <div class="column">
             <div class="content">
               <h2 class="title is-5 plot-title">ShadowHand (State Observations)</h2>
               <img src="./static/images/learning_curves/tdmpc-State.svg"
                  class="image"
+                 width="80%"
                  alt="Learning curves in shadow hand environment."/>
             </div>
           </div>
