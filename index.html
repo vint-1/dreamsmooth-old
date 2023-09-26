@@ -37,16 +37,16 @@
           <h1 class="title is-4 publication-subtitle">Improving Model-based Reinforcement Learning via Reward Smoothing</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://github.com/vint-1">Vint Lee</a><sup>1</sup>,</span>
+              <a href="https://github.com/vint-1">Vint Lee</a>,</span>
             <span class="author-block">
-              <a href="https://people.eecs.berkeley.edu/~pabbeel/">Pieter Abbeel</a><sup>1</sup>,</span>
+              <a href="https://people.eecs.berkeley.edu/~pabbeel/">Pieter Abbeel</a>,</span>
             <span class="author-block">
-              <a href="https://youngwoon.github.io/">Youngwoon Lee</a><sup>1</sup>,
+              <a href="https://youngwoon.github.io/">Youngwoon Lee</a>
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>UC Berkeley</span>
+            <span class="author-block">UC Berkeley</span>
           </div>
 
           <div class="column has-text-centered">
@@ -99,11 +99,10 @@
     </div>
   </div>
 </section>
-
+<!--
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- TODO replace with nicer teaser -->
         <img src="./static/images/teaser.png" class="teaser-image">
       <h2 class="subtitle has-text-centered">
         <span class="technique-name">Dreamsmooth</span> achieves better performance by improving reward prediction on sparse-reward tasks.
@@ -111,7 +110,7 @@
     </div>
   </div>
 </section>
-
+-->
 
 <section class="hero is-light is-small">
   <div class="hero-body">
@@ -124,14 +123,12 @@
             <p>
               Model-based reinforcement learning (MBRL) has gained much attention for its ability to learn complex behaviors in a sample-efficient way: 
               planning actions by generating imaginary trajectories with predicted rewards.
-              Despite its success, we found surprisingly that reward prediction is often a bottleneck of MBRL, 
+              Despite its success, we found surprisingly that <b>reward prediction is often a bottleneck of MBRL</b>, 
               especially for sparse rewards that are challenging (or even ambiguous) to predict.
-            </p>
-            <p>
+
               Motivated by the intuition that humans can learn from rough reward estimates, we propose a simple yet effective reward smoothing approach, 
-              <span class="technique-name">DreamSmooth</span>, which learns to predict a temporally-smoothed reward, instead of the exact reward at the given timestep. 
-            </p>
-            <p>
+              <span class="technique-name">DreamSmooth</span>, which learns to <b>predict a temporally-smoothed reward</b>, instead of the exact reward at the given timestep. 
+
               We empirically show that <span class="technique-name">DreamSmooth</span> achieves state-of-the-art performance on long-horizon sparse-reward tasks 
               both in sample efficiency and final performance without losing performance on common benchmarks, 
               such as Deepmind Control Suite and Atari benchmarks.
@@ -170,6 +167,7 @@
       <div class="column is-full-width">
         <h2 class="title is-3">Method Overview</h2>
         <!-- TODO add figures for these -->
+        <h3 class="title is-4">Reward Prediction is Important in MBRL</h3>
         <div class="content has-text-justified">
           <p>
             State-of-the-art MBRL algorithms like DreamerV3 and TD-MPC use reward models to predict the rewards
@@ -179,28 +177,26 @@
           </p>
         </div>
         <!-- Current Algorithms. -->
-        <h3 class="title is-4">Reward Prediction is Challenging</h3>
+        <h3 class="title is-4">However, Reward Prediction is Challenging</h3>
         <div class="content has-text-justified">
           
           <p>
-            However, we find that in many sparse-reward environments, especially those with
+            We find that in many sparse-reward environments, especially those with
             <b>partial observability</b> or <b>stochastic rewards</b>,
             reward prediction is surprisingly challenging.
             Specifically, the squared-error loss function used in many algorithms require reward models to
             predict sparse rewards at the exact timestep, which is difficult in many environments, even for humans.
-          </p>
-
-          <div class="column is-full-width"> 
-            <img src="./static/images/teaser.png"
-                   class="image"
-                   width="50%"
-                   alt="Prediction of sparse rewards can be very difficult, even for humans."/>
-          </div>
-
-          <p>
             In such cases, predicting a sparse reward even one timestep too early or too late incurs a large loss,
             more than simply predicting no reward at all timesteps.
           </p>
+
+          <div class="column is-full-width"> 
+            <img src="./static/images/task-intro.png"
+                   class="image"
+                   width="85%"
+                   alt="Prediction of sparse rewards can be very difficult, even for humans."/>
+          </div>
+
           <p>
             The model therefore minimizes loss by frequently omitting sparse rewards from its predictions.
             We observe this in several environments - 
@@ -241,13 +237,18 @@
             </div>
   
           </div>
-  
           <!-- TODO make this centered and nice :( -->
           <div class="column is-full-width"> 
             <img src="./static/images/trajectories/trajectory_unsmoothed_legend.svg"
-                   class="image"
+                   class="image plot-legend"
                    alt="Legend for reward plots over 1 episode."/>
           </div>
+
+          <p>
+            Notice that in all 3 environments, the reward model predicts 0 reward 
+            even when the agent completes the task successfully.
+          </p>
+
         </div>
         <!--/ Current Algorithms. -->
 
@@ -361,16 +362,16 @@
         <!-- TODO make this centered and nice :( -->
         <div class="column is-full-width"> 
           <img src="./static/images/trajectories/trajectory_smoothed_legend.svg"
-                 class="image"
+                 class="image plot-legend"
                  alt="Legend for reward plots over 1 episode."/>
         </div>
         
         <!-- Performance improved -->
-        <h3 class="title is-4"><span class="technique-name">DreamSmooth</span> Improves Performance</h3>
+        <h3 class="title is-4">By Accurately Predicting Rewards, <span class="technique-name">DreamSmooth</span> Improves Performance</h3>
         <div class="content has-text-justified">
           <p>
             More importantly, the improved reward predictions of <span class="technique-name">DreamSmooth</span> 
-            translate to better performance, with our method outperforming DreamerV3, 
+            translates to better performance. Our method outperforms DreamerV3 on many sparse-reward environments, 
             achieving a task completion rate up to 3x higher in a modified Robodesk environment.
           </p>
         </div>
@@ -408,7 +409,7 @@
         <!-- TODO make this centered and nice :( -->
         <div class="column is-full-width"> 
           <img src="./static/images/learning_curves/Legend.svg"
-                 class="image"
+                 class="image plot-legend"
                  alt="Legend for learning curves."/>
         </div>
 
@@ -447,7 +448,7 @@
         <!-- TODO make this centered and nice :( -->
         <div class="column is-full-width"> 
           <img src="./static/images/learning_curves/tdmpc-Legend.svg"
-                 class="image"
+                 class="image plot-legend"
                  alt="Legend for learning curves with TD-MPC."/>
         </div>
         <!--/ Other Algorithms. -->
@@ -462,8 +463,8 @@
 <!--/ TODO update this -->
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{vint2023dreamsmooth,
+    <h2 class="title">Citation</h2>
+    <pre><code>@article{lee2023dreamsmooth,
   author    = {Vint Lee and Pieter Abbeel and Youngwoon Lee},
   title     = {DreamSmooth: Improving Model-based Reinforcement Learning via Reward Smoothing},
   journal   = {????},
