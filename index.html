@@ -62,6 +62,7 @@
                   <span>Paper</span>
                 </a>
               </span>
+              -->
               <span class="link-block">
                 <a href="https://vint-1.github.io/dreamsmooth/"
                    class="external-link button is-normal is-rounded is-dark">
@@ -70,8 +71,8 @@
                   </span>
                   <span>arXiv</span>
                 </a>
-              </span> -->
-              <!-- Video Link. -->
+              </span> 
+              <!-- Video Link.
               <span class="link-block">
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                    class="external-link button is-normal is-rounded is-dark">
@@ -80,9 +81,9 @@
                   </span>
                   <span>Video</span>
                 </a>
-              </span>
+              </span> -->
               <!-- Code Link. -->
-              <!-- <span class="link-block">
+              <span class="link-block">
                 <a href="https://vint-1.github.io/dreamsmooth/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -90,7 +91,7 @@
                   </span>
                   <span>Code</span>
                   </a>
-              </span> -->
+              </span>
             </div>
 
           </div>
@@ -205,14 +206,22 @@
           </p>
 
           <div class="columns is-centered">
-
-            <!-- Robodesk -->
             <div class="column">
+              <!-- Robodesk -->
               <div class="content">
                 <h2 class="title is-5 plot-title">Robodesk</h2>
                 <img src="./static/images/trajectories/openl_rew_plot_24796456_c12daa47e19d3c5c03e7.plotly.json.svg"
                    class="image"
                    alt="Robodesk environment ground truth and predicted rewards over 1 episode."/>
+              </div>
+              <!-- Earthmoving -->
+              <div class="column">
+                <div class="content">
+                  <h2 class="title is-5 plot-title">Earthmoving</h2>
+                  <img src="./static/images/trajectories/openl_rew_plot_11996960_97811008d72d791fe486.plotly.json.svg"
+                     class="image"
+                     alt="Earthmoving environment ground truth and predicted rewards over 1 episode."/>
+                </div>
               </div>
             </div>
   
@@ -224,20 +233,17 @@
                    class="image"
                    alt="Shadow hand environment ground truth and predicted rewards over 1 episode."/>
               </div>
-            </div>
-  
-            <!-- Earthmoving -->
-            <div class="column">
-              <div class="content">
-                <h2 class="title is-5 plot-title">Earthmoving</h2>
-                <img src="./static/images/trajectories/openl_rew_plot_11996960_97811008d72d791fe486.plotly.json.svg"
-                   class="image"
-                   alt="Earthmoving environment ground truth and predicted rewards over 1 episode."/>
+
+              <div class="column">
+                <div class="content">
+                  <h2 class="title is-5 plot-title">Crafter</h2>
+                  <img src="./static/images/trajectories/openl_rew_plot_6324773_9de006955fda4665830e.plotly.json.svg"
+                     class="image"
+                     alt="Crafter environment ground truth and predicted rewards over 1 episode."/>
+                </div>
               </div>
             </div>
-  
           </div>
-          <!-- TODO make this centered and nice :( -->
           <div class="column is-full-width"> 
             <img src="./static/images/trajectories/trajectory_unsmoothed_legend.svg"
                    class="image plot-legend"
@@ -245,7 +251,7 @@
           </div>
 
           <p>
-            Notice that in all 3 environments, the reward model predicts 0 reward 
+            Notice that in all 4 environments, the reward model predicts 0 reward 
             even when the agent completes the task successfully.
           </p>
 
@@ -289,7 +295,7 @@
               <h2 class="title is-5 plot-title">Uniform Smoothing</h2>
               <img src="./static/images/uniform.svg"
                  class="image"
-                 alt="Shadow hand environment ground truth and predicted rewards over 1 episode."/>
+                 alt="Rewards before and after Uniform smoothing."/>
             </div>
           </div>
 
@@ -299,7 +305,7 @@
               <h2 class="title is-5 plot-title">EMA Smoothing</h2>
               <img src="./static/images/ema.svg"
                  class="image"
-                 alt="Earthmoving environment ground truth and predicted rewards over 1 episode."/>
+                 alt="Rewards before and after EMA smoothing."/>
             </div>
           </div>
 
@@ -327,33 +333,40 @@
         
         <div class="columns is-centered">
 
-          <!-- Robodesk -->
+          
           <div class="column">
+            <!-- Robodesk -->
             <div class="content">
               <h2 class="title is-5 plot-title">Robodesk</h2>
               <img src="./static/images/trajectories/openl_rew_plot_24397856_3eb889d9779e6a8d3048.plotly.json.svg"
                  class="image"
                  alt="Robodesk environment ground truth and predicted rewards over 1 episode."/>
             </div>
+            
+            <!-- Earthmoving -->
+            <div class="content">
+              <h2 class="title is-5 plot-title">Earthmoving</h2>
+              <img src="./static/images/trajectories/openl_rew_plot_12392736_61e5b00c2912a779f94b.plotly.json.svg"
+                 class="image"
+                 alt="Earthmoving environment ground truth and predicted rewards over 1 episode."/>
+            </div>
           </div>
 
-          <!-- Hand -->
           <div class="column">
+            <!-- Hand -->
             <div class="content">
               <h2 class="title is-5 plot-title">ShadowHand</h2>
               <img src="./static/images/trajectories/openl_rew_plot_20174224_025861757d8428e33328.plotly.json.svg"
                  class="image"
                  alt="Shadow hand environment ground truth and predicted rewards over 1 episode."/>
             </div>
-          </div>
-
-          <!-- Earthmoving -->
-          <div class="column">
+            
+            <!-- Crafter -->
             <div class="content">
-              <h2 class="title is-5 plot-title">Earthmoving</h2>
-              <img src="./static/images/trajectories/openl_rew_plot_12392736_61e5b00c2912a779f94b.plotly.json.svg"
+              <h2 class="title is-5 plot-title">Crafter</h2>
+              <img src="./static/images/trajectories/openl_rew_plot_6199654_800b4148117ef5f3c29f.plotly.json.svg"
                  class="image"
-                 alt="Earthmoving environment ground truth and predicted rewards over 1 episode."/>
+                 alt="Shadow hand environment ground truth and predicted rewards over 1 episode."/>
             </div>
           </div>
 
@@ -377,31 +390,36 @@
         </div>
 
         <div class="columns is-centered">
-          <!-- Robodesk -->
           <div class="column">
+            <!-- Robodesk -->
             <div class="content">
               <h2 class="title is-5 plot-title">Robodesk</h2>
               <img src="./static/images/learning_curves/Robodesk.svg"
                  class="image"
                  alt="Learning curves in robodesk environment."/>
             </div>
+            <div class="content">
+              <h2 class="title is-5 plot-title">Earthmoving</h2>
+              <img src="./static/images/learning_curves/AGX-rocks-v3.svg"
+                 class="image"
+                 alt="Learning curves in earthmoving environment."/>
+            </div>
           </div>
-          <!-- Hand -->
+          
           <div class="column">
+            <!-- Hand -->
             <div class="content">
               <h2 class="title is-5 plot-title">ShadowHand</h2>
               <img src="./static/images/learning_curves/Hand.svg"
                  class="image"
                  alt="Learning curves in shadow hand environment."/>
             </div>
-          </div>
-          <!-- Earthmoving -->
-          <div class="column">
+            <!-- Crafter -->
             <div class="content">
-              <h2 class="title is-5 plot-title">Earthmoving</h2>
-              <img src="./static/images/learning_curves/AGX-rocks-v3.svg"
+              <h2 class="title is-5 plot-title">Crafter</h2>
+              <img src="./static/images/learning_curves/crafter.svg"
                  class="image"
-                 alt="Learning curves in earthmoving environment."/>
+                 alt="Learning curves in crafter environment."/>
             </div>
           </div>
         </div>
@@ -411,6 +429,14 @@
           <img src="./static/images/learning_curves/Legend.svg"
                  class="image plot-legend"
                  alt="Legend for learning curves."/>
+        </div>
+
+        <div class="content has-text-justified">
+          <p>
+            A notable exception is Crafter, where <span class="technique-name">DreamSmooth</span>,
+            despite producing more accurate reward predictions,
+            tends to perform worse than DreamerV3. 
+          </p>
         </div>
 
         <!-- Other Algorithms. -->
